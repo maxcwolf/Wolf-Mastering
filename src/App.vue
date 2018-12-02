@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-    <v-toolbar app class="transparent elevation-0 white--text" ref="toolbar">
+    <v-toolbar
+      app
+      class="transparent elevation-0 white--text raised-nav"
+      ref="toolbar"
+    >
       <v-toolbar-side-icon v-if="navIsWhite">
         <img class="navbar-logo" src="./assets/wolf-logo-sm-white.webp" />
       </v-toolbar-side-icon>
@@ -8,7 +12,7 @@
         <img class="navbar-logo" src="./assets/wolf-logo-sm.webp" />
       </v-toolbar-side-icon>
       <v-toolbar-title :class="navIsWhite ? 'white--text' : ''"
-        >Wolf Mastering</v-toolbar-title
+        >WOLF Mastering</v-toolbar-title
       >
       <v-spacer></v-spacer>
       <v-toolbar-items
@@ -16,9 +20,9 @@
         v-for="(item, i) in navBarItems"
         :key="i"
       >
-        <v-btn :class="navIsWhite ? 'white--text' : ''" :to="item.link" flat>
-          {{ item.name }}
-        </v-btn>
+        <v-btn :class="navIsWhite ? 'white--text' : ''" :to="item.link" flat>{{
+          item.name
+        }}</v-btn>
       </v-toolbar-items>
     </v-toolbar>
     <v-content style="padding: 0;">
@@ -57,8 +61,6 @@ export default {
       navIsWhite: true
     };
   },
-  //TODO: Change handleScroll to a computed property which outputs true of false and use v-bind:class
-  // to dynamically create the classes in a ternary statement.
   methods: {
     handleScroll() {
       let scrollValue =
@@ -96,5 +98,9 @@ export default {
 
 .navbar-logo {
   height: 46px;
+}
+
+.raised-nav {
+  z-index: 10;
 }
 </style>

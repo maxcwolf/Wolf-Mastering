@@ -2,79 +2,86 @@
   <div class="home">
     <v-parallax dark :src="require('../assets/studio-knobs-md.jpg')">
       <v-layout align-center column justify-center>
-        <h1 class="display-3 font-weight-bold mb-3">Wolf Mastering</h1>
-        <h4 class="subheading">
+        <h1 class="display-4 font-weight-bold mb-3 para-heading">
+          Wolf Mastering
+        </h1>
+        <h4 class="title font-italic">
           A custom mastering studio offering the finest in digital and analog
           sonic treatment since 1996
         </h4>
       </v-layout>
     </v-parallax>
-    <img alt="Vue logo" src="../assets/wolf-logo.webp" />
-    <HelloWorld msg="Wolf Mastering" />
-    <p>
-      WOLF Mastering, a mastering studio located on Nashville's Music Row,
-      provides mastering services for all recording genres and clients
-      throughout the world. Mastering engineer Erik Wolf, owner and operator of
-      Wolf Mastering, learned his craft in Los Angeles, then worked for the
-      legendary Bernie Grundman Mastering in Hollywood, California for five
-      years before moving to Nashville to start his own mastering studio in
-      1996.
-    </p>
-    <div class="ricksum" id="ricksum">
-      <p>
-        Mind your own goddamn business, Gene! I'm having a conversation with my
-        mother here! Kissing Rick's ass isn't gonna make him stay, Mom, but it
-        will help you lose everyone else. Okay, take it easy Rick. T-that's
-        dark. What about the reality where Hitler cured cancer, Morty? The
-        answer is: Don't think about it. God-damn!
-      </p>
-      <p>
-        Nobody's killing me until after I catch my wife with another man. No
-        jumping in the sewer! Man, that guy is the Red Grin Grumbold of
-        pretending he knows what's going on. Oh you agree huh? You like that Red
-        Grin Grumbold reference? Well guess what, I made him up. You really are
-        your father's children. Think for yourselves, don't be sheep. Then let
-        me GET to know you!
-      </p>
-      <p>
-        I am Mr. Booby Buyer. I'll buy those boobies for 25 schmeckles! Well I
-        don't like your unemployed genes in my grandchildren, Jerry. Wow I
-        really crononberg'd up the whole place huh Morty, just a bunch a
-        cronenbergs walkin around. You know my name, that's disarming.
-      </p>
-      <p>
-        No jumping in the sewer! If it were, you could call ME Ernest Hemingway.
-        Alien Invasion Tomato Monster Mexican Armada Brothers Who Are Just
-        Regular Brothers Running In A Van From An Asteroid And All Sorts Of
-        Things: The Movie. Like nothing shady ever happened in a fully furnished
-        office? You ever hear about Wall Street Morty? You know what those guys
-        do in their fancy board rooms? They take their balls and dip 'em in
-        cocaine and wipe 'em all over each other. You know Grandpa goes around
-        and he does his business in public because grandpa isn't shady.
-      </p>
-      <p>
-        I'm Mr. Crowbar, and here is my friend, who is also a crowbar! Nice, Mrs
-        Pancakes. Real nice. Aww, gee, you got me there, Rick. Hi! Principal
-        Vagina: the name's real, possibly Scandinavian.
-      </p>
-      <p>
-        Nothing to read into there! I'm a bit of a stickler Meeseeks, what about
-        your short game? Are you invisible and you're gonna, like, fart on me?
-        It's like the N word and the C word had a baby, and it was raised by all
-        the bad words for Jews.
-      </p>
-    </div>
+    <v-layout
+      justify-space-around
+      fill-height
+      pa-4
+      class="main main-raised elevation-24"
+    >
+      <v-flex>
+        <v-card> <v-img></v-img> </v-card>
+      </v-flex>
+      <v-flex ma-4>
+        <v-card pa-4>
+          <v-img :src="require('@/assets/erik.webp')"></v-img>
+          <p>
+            Erik Wolf- "I've been mastering for many years, long enough to see
+            many changes. When I started, I cut lacquers which were used to
+            press vinyl records. That required a unique set of skills. Getting a
+            recording to fit on one side of a record, one groove, from lead in
+            to lead out, requires finesse and experience. When the industry
+            changed, I learned early CD mastering on the Sony PCM 1630 with the
+            most current technology at the time. Later, digital work stations
+            were incorporated into the mastering. Though there have been
+            changes, the process and the skills are basically the same.The role
+            of the mastering engineer requires a combination of artistic and
+            technical skills. Providing an objective set of ears and
+            understanding to get the most from each recording. This will result
+            in a great sounding project, one that will sound great on all types
+            of playback. Big speakers or earbuds, CDs and MP3s."
+          </p>
+        </v-card>
+      </v-flex>
+      <v-flex ma-2>
+        <v-card pa-2>
+          <div class="ricksum" id="ricksum">
+            <p>
+              WOLF Mastering, a mastering studio located on Nashville's Music
+              Row, provides mastering services for all recording genres and
+              clients throughout the world. Mastering engineer Erik Wolf, owner
+              and operator of Wolf Mastering, learned his craft in Los Angeles,
+              then worked for the legendary Bernie Grundman Mastering in
+              Hollywood, California for five years before moving to Nashville to
+              start his own mastering studio in 1996.
+            </p>
+          </div>
+        </v-card>
+      </v-flex>
+    </v-layout>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld";
-
 export default {
-  name: "home",
-  components: {
-    HelloWorld
-  }
+  name: "home"
 };
 </script>
+
+<style>
+.para-heading {
+  font-family: "Audiowide" !important;
+}
+/* font-family: 'Audiowide', cursive;
+font-family: 'Aldrich', sans-serif;
+font-family: 'Rammetto One', cursive; */
+
+.main {
+  background: #ffffff;
+  position: relative;
+  z-index: 3;
+}
+
+.main-raised {
+  margin: -40px 40px 0px;
+  border-radius: 6px;
+}
+</style>
