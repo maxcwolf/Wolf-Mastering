@@ -1,22 +1,24 @@
 <template>
   <div id="app">
-    <v-toolbar app class="transparent elevation-0 white--text">
+    <v-toolbar app class="transparent elevation-0 white--text" ref="toolbar">
       <v-toolbar-side-icon v-if="navIsWhite">
         <img class="navbar-logo" src="./assets/wolf-logo-sm-white.webp" />
       </v-toolbar-side-icon>
       <v-toolbar-side-icon v-if="!navIsWhite">
         <img class="navbar-logo" src="./assets/wolf-logo-sm.webp" />
       </v-toolbar-side-icon>
-      <v-toolbar-title>Wolf Mastering</v-toolbar-title>
+      <v-toolbar-title :class="navIsWhite ? 'white--text' : ''"
+        >Wolf Mastering</v-toolbar-title
+      >
       <v-spacer></v-spacer>
       <v-toolbar-items
         class="hidden-sm-and-down"
         v-for="(item, i) in navBarItems"
         :key="i"
       >
-        <v-btn :class="navIsWhite ? 'white--text' : ''" :to="item.link" flat>{{
-          item.name
-        }}</v-btn>
+        <v-btn :class="navIsWhite ? 'white--text' : ''" :to="item.link" flat>
+          {{ item.name }}
+        </v-btn>
       </v-toolbar-items>
     </v-toolbar>
     <v-content style="padding: 0;">
@@ -61,14 +63,13 @@ export default {
     handleScroll() {
       let scrollValue =
         document.body.scrollTop || document.documentElement.scrollTop;
-      let navbarColor = document.getElementsByClassName("v-toolbar");
       this.currentScrollValue = scrollValue;
-      if (this.colorOnScroll > 0 && scrollValue > this.colorOnScroll) {
-        navbarColor[0].classList.remove("transparent", "white--text");
-        this.navIsWhite = false;
+      this.navIsWhite =
+        this.colorOnScroll > 0 && scrollValue < this.colorOnScroll;
+      if (!this.navIsWhite) {
+        this.$refs.toolbar.$el.classList.remove("transparent", "white--text");
       } else {
-        navbarColor[0].classList.add("transparent", "white--text");
-        this.navIsWhite = true;
+        this.$refs.toolbar.$el.classList.add("transparent", "white--text");
       }
     },
     scrollListener() {
