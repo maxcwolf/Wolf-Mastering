@@ -20,13 +20,15 @@
         v-for="(item, i) in navBarItems"
         :key="i"
       >
-        <v-btn :class="navIsWhite ? 'white--text' : ''" :to="item.link" flat>{{
-          item.name
-        }}</v-btn>
+        <v-btn :class="navIsWhite ? 'white--text' : ''" :to="item.link" flat>
+          {{ item.name }}
+        </v-btn>
       </v-toolbar-items>
     </v-toolbar>
     <v-content style="padding: 0;">
-      <v-container fluid pa-0> <router-view></router-view> </v-container>
+      <v-container fluid pa-0 grid-list-md>
+        <router-view></router-view>
+      </v-container>
     </v-content>
   </div>
 </template>
