@@ -1,17 +1,7 @@
 <template>
   <div class="home">
     <v-container fluid pa-0 grid-list-md>
-      <v-parallax dark :src="require('../assets/studio-knobs-md.jpg')">
-        <v-layout align-center column justify-center>
-          <h1 class="display-4 font-weight-bold mb-3 para-heading">
-            Wolf Mastering
-          </h1>
-          <h4 class="title font-italic">
-            A custom mastering studio offering the finest in digital and analog
-            sonic treatment since 1996
-          </h4>
-        </v-layout>
-      </v-parallax>
+      <parallax-header :title="parallaxTitle" :content="parallaxContent" />
       <v-layout fill-height row pa-4 class="main main-raised elevation-24">
         <v-flex ma-2 mt-4 xs8>
           <!-- <div class="main title-raised center">
@@ -61,30 +51,32 @@
                 in Hollywood, California for five years before moving to
                 Nashville to start his own mastering studio in 1996.
               </v-card-text>
-              <v-card-text py-0 class="subheading"
-                >Each recording is different and requires its own sonic
+              <v-card-text py-0 class="subheading">
+                Each recording is different and requires its own sonic
                 treatment. The best and only way you can hear the difference
                 after mastering is to hear a sample of your own recording
                 mastered by WOLF Mastering. Upon request, WOLF Mastering is
                 happy to offer a free sample mastering of your recording. This
                 is not just the "run it through plug-ins, louder is better"
-                approach.</v-card-text
-              >
+                approach.
+              </v-card-text>
             </div>
           </v-card>
         </v-flex>
       </v-layout>
-      <v-layout>
-        <v-flex>
-          <v-card>
-            <iframe
-              width="470"
-              height="265"
-              src="https://www.youtube.com/embed/8sbgT6m_gCg"
-              frameborder="0"
-              allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
+      <v-layout row justify-center fill-height>
+        <v-flex pa-10 ma-5 xs4>
+          <v-card dark class="elevation-10">
+            <div>
+              <iframe
+                width="470"
+                height="265"
+                src="https://www.youtube.com/embed/8sbgT6m_gCg"
+                frameborder="0"
+                allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
           </v-card>
         </v-flex>
       </v-layout>
@@ -93,8 +85,19 @@
 </template>
 
 <script>
+import ParallaxHeader from "../components/ParallaxHeader";
 export default {
-  name: "home"
+  name: "home",
+  components: {
+    ParallaxHeader
+  },
+  data() {
+    return {
+      parallaxTitle: "Wolf Mastering",
+      parallaxContent:
+        "A custom mastering studio offering the finest in digital and analog sonic treatment since 1996"
+    };
+  }
 };
 </script>
 
@@ -136,5 +139,10 @@ font-family: 'Rammetto One', cursive; */
 .card-title {
   font-size: 28px;
   font-family: "Audiowide" !important;
+}
+
+.dark-card {
+  background-color: #1e4a91 !important;
+  color: #ffffff !important;
 }
 </style>

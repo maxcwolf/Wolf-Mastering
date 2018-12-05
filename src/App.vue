@@ -11,7 +11,7 @@
       <v-toolbar-side-icon v-if="!navIsWhite">
         <img class="navbar-logo" src="./assets/wolf-logo-sm.webp" />
       </v-toolbar-side-icon>
-      <v-toolbar-title :class="navIsWhite ? 'white--text' : ''"
+      <v-toolbar-title :class="{ 'white--text': navIsWhite }"
         >WOLF Mastering</v-toolbar-title
       >
       <v-spacer></v-spacer>
@@ -20,27 +20,23 @@
         v-for="(item, i) in navBarItems"
         :key="i"
       >
-        <v-btn :class="navIsWhite ? 'white--text' : ''" :to="item.link" flat>
-          {{ item.name }}
-        </v-btn>
+        <v-btn :class="{ 'white--text': navIsWhite }" :to="item.link" flat>{{
+          item.name
+        }}</v-btn>
       </v-toolbar-items>
     </v-toolbar>
-    <v-content style="padding: 0;">
-      <v-container fluid pa-0 grid-list-md>
-        <router-view></router-view>
-      </v-container>
-    </v-content>
+    <v-content style="padding: 0;"> <router-view></router-view> </v-content>
   </div>
 </template>
 
 <script>
 let resizeTimeout;
-function resizeThrottler(actualResizeHandler) {
+function resizeThrottler(resizeHandler) {
   // ignore resize events as long as an actualResizeHandler execution is in the queue
   if (!resizeTimeout) {
     resizeTimeout = setTimeout(() => {
       resizeTimeout = null;
-      actualResizeHandler();
+      resizeHandler();
 
       // The actualResizeHandler will execute at a rate of 15fps
     }, 66);
